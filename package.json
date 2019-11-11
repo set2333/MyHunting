@@ -1,0 +1,24 @@
+{
+  "name": "myhunting",
+  "version": "1.0.0",
+  "description": "Сайт посвященный моей охоте",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/set2333/MyHunting.git"
+  },
+  "author": "Trofimov Evgeniy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/set2333/MyHunting/issues"
+  },
+  "homepage": "https://github.com/set2333/MyHunting#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-sass": "^4.13.0",
+    "pug": "^2.0.4"
+  }
+}

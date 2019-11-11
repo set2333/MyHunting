@@ -1,0 +1,26 @@
+.maincolor {
+    background-color: #FFC040;
+    height: 500px;
+    float: left;
+    width: 250px;
+}
+
+.firstcolor {
+    background-color: #FFAA00;
+    height: 500px;
+    float: left;
+    width: 250px;
+}
+
+.akcentcolor {
+    background-color: #408CFF;
+    height: 500px;
+    float: left;
+    width: 250px;
+}
+
+.backgr {
+    background-color: #FFF;
+    height: 600px;
+    width: 800px
+}

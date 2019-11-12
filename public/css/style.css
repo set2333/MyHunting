@@ -1,9 +1,10 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Cormorant+Infant:400,700|Montserrat+Alternates:400,400i,700&display=swap");
 /* сброс стилей браузера */
 * {
   box-sizing: border-box; }
 
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+html, body, div, span, object, iframe, h1, h2, h3, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
@@ -40,3 +41,51 @@ q:before, q:after {
   content: none; }
 
 /* конец кода сброса стилей браузера */
+body {
+  font-family: "Montserrat Alternates", sans-serif; }
+
+h1, h2, h3 {
+  font-family: "Cormorant Infant", serif; }
+
+html {
+  height: 100%; }
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  min-height: 100%; }
+
+.main {
+  float: right;
+  flex-grow: 4; }
+
+.flexcontainer {
+  flex: 1 0 auto;
+  display: flex;
+  flex-flow: row; }
+
+header {
+  height: 100px;
+  border: 2px solid #408CFF;
+  text-align: center; }
+
+nav {
+  flex-grow: 1;
+  background-color: #FFC040;
+  border: 2px solid #408CFF; }
+  nav ul {
+    padding: 0; }
+  nav li {
+    padding: 10px;
+    margin: 10px;
+    background-color: #FFAA00;
+    list-style-type: none;
+    border: 1px solid #408CFF;
+    border-radius: 5px; }
+
+footer {
+  flex: 0 0 auto;
+  height: 100px;
+  border: 2px solid #408CFF; }

@@ -18,11 +18,11 @@ html
                     img(src="img/logo.png" alt="ТОЗ-34")
                     h1 Моя охота
                 div.content
-                    if typePage == "journal"
+                    if typePage == "/journal"
                         include journal
-                    else if typePage == "route"
+                    else if typePage == "/route"
                         include route
-                    else if typePage == "fowl"
+                    else if typePage == "/fowl"
                         include fowl
                     else 
                         include main    

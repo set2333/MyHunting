@@ -1,6 +1,12 @@
 footer {
     flex: 0 0 auto;
     height: $footerheight;
-    border: 2px solid $akcentcolor;
+    border-radius: 7px 7px 0 0;
+    background-color: $maincolor;
+    margin-top: 10px;
+    box-shadow: $divshadow;
     
+    p {
+        font-size: 12px;
+    }
 }

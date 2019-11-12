@@ -1,15 +1,21 @@
 body {
     font-family: $otherfont;
+    font-size: 24px;
+    line-height: 36px;
+    text-indent: 12px;
 }
 
 h1 {
     font-family: $headfont;
+    font-size: 48px;
 }
 
 h2 {
     @extend h1;
+    font-size: 36px;
 }
 
 h3 {
     @extend h1;
+    font-size: 24px;
 }

@@ -1,5 +1,21 @@
 header {
     height: $headerheight;
-    border: 2px solid $akcentcolor;
-    text-align: center; 
+    border-radius: 0 0 7px 7px;
+    display: inline-block;
+    width: 100%;
+    background-color: $maincolor;
+    box-shadow: $divshadow;
+    
+    img {
+        height: 100%;
+        float: left;
+        margin-left: 30px;
+    }
+    
+    h1 {
+        float: right;
+        margin: 20px;
+        color: $akcentcolor;
+        font-style: italic;
+    }
 }

@@ -4,7 +4,7 @@
 * {
   box-sizing: border-box; }
 
-html, body, div, span, object, iframe, h1, h2, h3, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+html, body, button, div, span, object, iframe, h1, h2, h3, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
@@ -17,7 +17,7 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block; }
 
-body {
+body, button {
   line-height: 1.2; }
 
 table {
@@ -41,7 +41,7 @@ q:before, q:after {
   content: none; }
 
 /* конец кода сброса стилей браузера */
-body {
+body, button {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 24px;
   line-height: 36px;
@@ -52,7 +52,8 @@ h1, h2, h3 {
   font-size: 48px; }
 
 h2 {
-  font-size: 36px; }
+  font-size: 36px;
+  padding: 20px; }
 
 h3 {
   font-size: 24px; }
@@ -60,7 +61,7 @@ h3 {
 html {
   height: 100%; }
 
-body {
+body, button {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -69,7 +70,7 @@ body {
 
 .main {
   float: right;
-  flex-grow: 4; }
+  flex: 4 1 70%; }
 
 .flexcontainer {
   flex: 1 0 auto;
@@ -77,27 +78,28 @@ body {
   flex-flow: row; }
 
 .content {
-  text-align: center; }
+  text-align: center;
+  padding-top: 40px; }
 
 header {
   height: 100px;
   border-radius: 0 0 7px 7px;
-  display: inline-block;
-  width: 100%;
+  display: flex;
+  margin-left: 10px;
   background-color: #FFC040;
   box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.6); }
   header img {
+    flex: 1 1 50%;
     height: 100%;
-    float: left;
     margin-left: 30px; }
   header h1, header h2, header h3 {
-    float: right;
+    flex: 1 1 50%;
     margin: 20px;
     color: #408CFF;
     font-style: italic; }
 
 nav {
-  flex-grow: 1;
+  flex: 1 1 20%;
   background-color: #FFC040;
   border-radius: 0 0 7px 7px;
   box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.6); }
@@ -113,6 +115,21 @@ nav {
     text-align: left;
     box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.3); }
   nav li:hover {
+    background-color: #408CFF; }
+
+form {
+  border: 2px solid #408CFF;
+  border-radius: 7px;
+  margin: 20px 80px;
+  padding: 20px;
+  background-color: #FFC040; }
+  form button {
+    padding: 10px 40px;
+    margin-top: 20px;
+    background-color: #FFAA00;
+    border-radius: 7px;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.3); }
+  form button:hover {
     background-color: #408CFF; }
 
 footer {

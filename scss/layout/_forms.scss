@@ -1,0 +1,19 @@
+form {
+    border: 2px solid $akcentcolor;
+    border-radius: 7px;
+    margin: 20px 80px;
+    padding: 20px;
+    background-color: $maincolor; 
+    
+    button {
+        padding: 10px 40px;
+        margin-top: 20px;
+        background-color: $firstcolor;
+        border-radius: 7px;
+        box-shadow: 0 0 4px 2px rgba(0, 0, 0, .3);
+    }
+    
+    button:hover {
+         background-color: $akcentcolor;
+    }
+}

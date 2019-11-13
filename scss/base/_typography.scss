@@ -5,6 +5,10 @@ body {
     text-indent: 12px;
 }
 
+button {
+    @extend body;
+}
+
 h1 {
     font-family: $headfont;
     font-size: 48px;
@@ -13,6 +17,7 @@ h1 {
 h2 {
     @extend h1;
     font-size: 36px;
+    padding: 20px;
 }
 
 h3 {

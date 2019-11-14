@@ -5,7 +5,7 @@ form {
     padding: 20px;
     background-color: $maincolor; 
     
-    button {
+    input[type="submit"] {
         padding: 10px 40px;
         margin-top: 20px;
         background-color: $firstcolor;
@@ -13,7 +13,15 @@ form {
         box-shadow: 0 0 4px 2px rgba(0, 0, 0, .3);
     }
     
-    button:hover {
+    input[type="submit"]:hover {
          background-color: $akcentcolor;
+    }
+    
+    input[type="text"] {
+        margin: 10px;
+    }
+    
+    input[type="password"] {
+        @extend input[type="text"];
     }
 }

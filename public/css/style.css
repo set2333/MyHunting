@@ -4,7 +4,7 @@
 * {
   box-sizing: border-box; }
 
-html, body, button, div, span, object, iframe, h1, h2, h3, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+html, body, input[type="submit"], div, span, object, iframe, h1, h2, h3, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
@@ -17,7 +17,7 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block; }
 
-body, button {
+body, input[type="submit"] {
   line-height: 1.2; }
 
 table {
@@ -41,7 +41,7 @@ q:before, q:after {
   content: none; }
 
 /* конец кода сброса стилей браузера */
-body, button {
+body, input[type="submit"] {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 24px;
   line-height: 36px;
@@ -61,7 +61,7 @@ h3 {
 html {
   height: 100%; }
 
-body, button {
+body, input[type="submit"] {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -123,14 +123,16 @@ form {
   margin: 20px 80px;
   padding: 20px;
   background-color: #FFC040; }
-  form button {
+  form input[type="submit"] {
     padding: 10px 40px;
     margin-top: 20px;
     background-color: #FFAA00;
     border-radius: 7px;
     box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.3); }
-  form button:hover {
+  form input[type="submit"]:hover {
     background-color: #408CFF; }
+  form input[type="text"], form input[type="password"] {
+    margin: 10px; }
 
 footer {
   flex: 0 0 auto;

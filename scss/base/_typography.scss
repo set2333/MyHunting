@@ -5,7 +5,7 @@ body {
     text-indent: 12px;
 }
 
-button {
+input[type="submit"] {
     @extend body;
 }
 

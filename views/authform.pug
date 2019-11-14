@@ -1,7 +1,7 @@
-form
+form.formAuth(action="/auth" method="post")
     h2 Авторизуйтесь
     p Логин
-        input.login
+        input.login(type="text" name="login")
     p Пароль
-        input.password
-    button(type="submit") Войти    
+        input.password(type="password" name="password")
+    input.submitAuth(type="submit" value="Войти")     

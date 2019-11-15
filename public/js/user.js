@@ -1,5 +1,14 @@
 function getPage(namePage) {
-    $('.content').load(namePage);
+    $('.content').load(namePage, function(data) {
+        $('.formAuth').submit(submitAuthForm);
+    });
+}
+
+function submitAuthForm(event) {
+    event.preventDefault();
+    $.post('/auth', $(this).serialize(), function(data) {
+        $('.content').html(data);
+    });
 }
 
 $(function() {
@@ -7,8 +16,5 @@ $(function() {
     $('#btnFowl').click(getPage.bind(this, 'fowlajax'));
     $('#btnRoute').click(getPage.bind(this, 'routeajax'));
     $('#btnJournal').click(getPage.bind(this, 'journalajax'));
-    $('.formAuth').submit(data, function() {
-        alert(data);
-        return false;
-    });
+    $('.formAuth').submit(submitAuthForm);
 })

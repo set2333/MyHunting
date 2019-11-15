@@ -25,17 +25,11 @@ app.get('*', function (req, res) {
 
 app.post('/auth', function (req, res) {
     getPassword(req.body.login, req.body.password).then(
-        function (resPass) {
+        function(resPass) {
             if (resPass) {
-                res.render('index', {
-                    title: 'Моя охота',
-                    typePage: '/route'
-                });
+                res.render('route');
             } else {
-                res.render('index', {
-                    title: 'Моя охота',
-                    typePage: '/main'
-                });
+                res.render('fowl');
             }
         }
     );

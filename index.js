@@ -3,6 +3,7 @@ const app = express();
 const pg = require('pg');
 const conString = "postgres://postgres:123@localhost:5432/myhunting";
 const crypto = require('crypto');
+const redis = require('redis');
 
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -25,8 +26,18 @@ app.get('*', function (req, res) {
 
 app.post('/auth', function (req, res) {
     getPassword(req.body.login, req.body.password).then(
-        function(resPass) {
+        function (resPass) {
             if (resPass) {
+                let redis_client = redis.createClient();
+                redis_client.on('error', function(err) {
+                    console.log("Error client.on");
+                });
+
+                redis_client.set(getHash(req.body.password), getHash(req.body.password));
+                redis_client.get(getHash(req.body.password), function (err, obj) {
+                    console.log(obj);
+                });
+                redis_client.quit();
                 res.render('route');
             } else {
                 res.render('fowl');

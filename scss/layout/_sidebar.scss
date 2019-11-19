@@ -3,11 +3,11 @@ nav {
     background-color: $maincolor;
     border-radius: 0 0 7px 7px;
     box-shadow: $divshadow;
-    
+
     ul {
         padding: 0;
     }
-    
+
     li {
         padding: 10px;
         padding-left: 0;
@@ -18,8 +18,13 @@ nav {
         text-align: left;
         box-shadow: 0 0 4px 2px rgba(0, 0, 0, .3);
     }
-    
+
     li:hover {
         background-color: $akcentcolor;
     }
+
+    .buttonHide {
+        display: none;
+    }
 }
+

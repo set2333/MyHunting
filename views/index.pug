@@ -13,6 +13,10 @@ html
                     li#btnJournal Журнал
                     li#btnRoute Заходки
                     li#btnFowl Дичь
+                    if authorized
+                        li#btnExit Выход
+                    else
+                        li#btnExit.buttonHide Выход
             div.main
                 header
                     img(src="img/logo.png" alt="ТОЗ-34")

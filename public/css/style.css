@@ -116,6 +116,8 @@ nav {
     box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.3); }
   nav li:hover {
     background-color: #408CFF; }
+  nav .buttonHide {
+    display: none; }
 
 form {
   border: 2px solid #408CFF;

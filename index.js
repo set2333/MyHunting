@@ -47,10 +47,10 @@ app.get('*', function (req, res) {
             if ((url == 'main') || (url == '/')) {
                 url = 'main_auth'
             }
-            console.log(url);
             res.render('index', {
                 title: 'Моя охота',
-                typePage: url
+                typePage: url,
+                authorized: true
             });
         }
     } else {
@@ -59,7 +59,8 @@ app.get('*', function (req, res) {
         } else {
             res.render('index', {
                 title: 'Моя охота',
-                typePage: 'main'
+                typePage: 'main',
+                authorized: false
             });
         }
     }
@@ -70,12 +71,20 @@ app.post('/auth', function (req, res) {
         function (resPass) {
             if (resPass) {
                 req.session.key = getHash(req.body.password + req.body.login);
+                res.cookie('authorized', true);
                 res.render('main_auth');
             } else {
                 res.render('main');
             }
         }
     );
+});
+
+app.post('/exit', function (req, res) {
+    req.session.destroy(function() {
+        res.cookie('authorized', false);
+        res.render('main');
+    })
 });
 
 app.listen(8080, function () {

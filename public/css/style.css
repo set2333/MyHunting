@@ -136,6 +136,21 @@ form {
   form input[type="text"], form input[type="password"] {
     margin: 10px; }
 
+.modalWindows {
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  border: 2px solid #408CFF;
+  border-radius: 7px;
+  background-color: #FFC040; }
+  .modalWindows .buttonsPanel {
+    display: flex;
+    flex-flow: row;
+    padding: 10px; }
+
 footer {
   flex: 0 0 auto;
   height: 50px;

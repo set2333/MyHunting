@@ -25,3 +25,21 @@ form {
         @extend input[type="text"];
     }
 }
+
+.modalWindows {
+    padding: 20px;
+    display: flex;
+    flex-flow: column;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    border: 2px solid $akcentcolor;
+    border-radius: 7px;
+    background-color: $maincolor;
+    
+    .buttonsPanel {
+        display: flex;
+        flex-flow: row;
+        padding: 10px;
+    }
+}

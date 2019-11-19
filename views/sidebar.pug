@@ -1,0 +1,10 @@
+nav
+    ul
+        li#btnMain Главная
+        li#btnJournal Журнал
+        li#btnRoute Заходки
+        li#btnFowl Дичь
+        if authorized
+            li#btnExit Выход
+        else
+            li#btnExit.buttonHide Выход

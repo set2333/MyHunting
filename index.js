@@ -10,6 +10,13 @@ app.use(_session);
 app.use(express.urlencoded()); //Нужно чтобы разобрать данные полученные от формы
 //app.use(express.json());
 
+app.get('/fowlajax', (req, res)=>{
+    let fowls = _db.getFowl();
+    fowls.then((resQuery)=> {
+        res.render('fowl', {fowls: resQuery});
+    });
+})
+
 app.get('*', function (req, res) {
     let positionAjax = req.url.indexOf('ajax');
     if (isAutorized(req)) {

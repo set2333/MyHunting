@@ -6,13 +6,16 @@ const crypto = require('crypto');
 const db = {
     getPassword: getPassword,
     getHash: getHash,
-    addFowl: addFowl
+    addFowl: addFowl,
+    getFowl: getFowl
 }
 
 //Проверим правильность логина и пароля
 async function getPassword(userName, userPassword) {
-    let res = await get('users', ['password'], {name: userName});
-    let password = res ? res.rows[0].password : null; 
+    let res = await get('users', ['password'], {
+        name: userName
+    });
+    let password = res ? res.rows[0].password : null;
     if (password !== null && getHash(userPassword) == password) {
         return true;
     } else {
@@ -20,6 +23,13 @@ async function getPassword(userName, userPassword) {
     }
 }
 
+async function getFowl() {
+    let res = await get('fowl', ['name']);
+    let fowls = res ? res.rows : null;
+    return fowls;
+}
+
+//Добавление дичи. Добавляется ссылка на страницу с дичью.
 async function addFowl(nameFowl) {
     await add('fowl', {
         name: nameFowl
@@ -49,30 +59,37 @@ async function add(tableName, addData) {
 }
 
 //Получение записей из таблицы tableName - строка имя таблицы feilds - массив полей таблицы values - объект название поля и условие
-async function get(tableName, feilds, values) {
+async function get(tableName, feilds, values={}) {
     var client = new pg.Client(conString);
     client.connect();
     let strFeilds = 'SELECT ';
     let strTableName = " FROM " + tableName + " ";
     let strValues = "Where ";
     let sizeData = feilds.length;
-    feilds.forEach((item, i, arr) => {
-        strFeilds += item;
-        if (--sizeData) {
-            strFeilds += ", ";
-        } else {
-            strFeilds += " ";
-        }
-    });
+    if (sizeData) {
+        feilds.forEach((item, i, arr) => {
+            strFeilds += item;
+            if (--sizeData) {
+                strFeilds += ", ";
+            } else {
+                strFeilds += " ";
+            }
+        });
+    } else {
+        strValues += '* ';
+    }
     sizeData = Object.keys(values).length;
-    for (let key in values) {
-        strValues += tableName + "." + key + " = '" + values[key];
-        if (--sizeData) {
-            strValues += "', ";
+    if (sizeData) {
+        for (let key in values) {
+            strValues += tableName + "." + key + " = '" + values[key];
+            if (--sizeData) {
+                strValues += "', ";
+            } else {
+                strValues += "';";
+            }
         }
-        else {
-            strValues += "';";
-        }
+    } else {
+        strValues = ';';
     }
     let result = await client.query(strFeilds + strTableName + strValues);
     await client.end();

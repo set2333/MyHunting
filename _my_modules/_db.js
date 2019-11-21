@@ -5,7 +5,8 @@ const crypto = require('crypto');
 
 const db = {
     getPassword: getPassword,
-    getHash: getHash
+    getHash: getHash,
+    addFowl: addFowl
 }
 
 //Проверим правильность логина и пароля
@@ -23,6 +24,14 @@ async function getPassword(userName, userPassword) {
     } else {
         return false;
     }
+}
+
+async function addFowl(nameFowl) {
+    var client = new pg.Client(conString);
+    let password = null;
+    client.connect();
+    var res = await client.query("INSERT INTO fowl (name) VALUES('" + nameFowl + "');");
+    await client.end();
 }
 
 //Функция возвращает хэш

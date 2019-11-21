@@ -58,6 +58,11 @@ app.post('/auth', function (req, res) {
     );
 });
 
+app.post('/addFowl', function(req, res) {
+    _db.addFowl(req.body.nameFowl);
+    res.render('fowl');
+});
+
 app.post('/exit', function (req, res) {
     req.session.destroy(function() {
         res.cookie('authorized', false);

@@ -11,14 +11,8 @@ const db = {
 
 //Проверим правильность логина и пароля
 async function getPassword(userName, userPassword) {
-    var client = new pg.Client(conString);
-    let password = null;
-    client.connect();
-    var res = await client.query("SELECT password FROM users Where users.name = '" + userName + "'");
-    res.rows.forEach(row => {
-        password = row.password;
-    });
-    await client.end();
+    let res = await get('users', ['password'], {name: userName});
+    let password = res ? res.rows[0].password : null; 
     if (password !== null && getHash(userPassword) == password) {
         return true;
     } else {
@@ -27,9 +21,12 @@ async function getPassword(userName, userPassword) {
 }
 
 async function addFowl(nameFowl) {
-    await add('fowl', {name: nameFowl});
+    await add('fowl', {
+        name: nameFowl
+    });
 }
 
+//Добавление записи в таблицуб tableName - строка имя таблицы addData - объект название добавляемого поля и его значение
 async function add(tableName, addData) {
     var client = new pg.Client(conString);
     client.connect();
@@ -42,14 +39,47 @@ async function add(tableName, addData) {
         if (--sizeData) {
             strParams += ', ';
             strValues += ', ';
-        }
-        else {
+        } else {
             strParams += ') ';
             strValues += ');';
         }
     }
     var res = await client.query(strParams + strValues);
     await client.end();
+}
+
+//Получение записей из таблицы tableName - строка имя таблицы feilds - массив полей таблицы values - объект название поля и условие
+async function get(tableName, feilds, values) {
+    var client = new pg.Client(conString);
+    client.connect();
+    let strFeilds = 'SELECT ';
+    let strTableName = " FROM " + tableName + " ";
+    let strValues = "Where ";
+    let sizeData = feilds.length;
+    feilds.forEach((item, i, arr) => {
+        strFeilds += item;
+        if (--sizeData) {
+            strFeilds += ", ";
+        } else {
+            strFeilds += " ";
+        }
+    });
+    sizeData = Object.keys(values).length;
+    for (let key in values) {
+        strValues += tableName + "." + key + " = '" + values[key];
+        if (--sizeData) {
+            strValues += "', ";
+        }
+        else {
+            strValues += "';";
+        }
+    }
+    let result = await client.query(strFeilds + strTableName + strValues);
+    await client.end();
+    if (result.rowCount) {
+        return result;
+    }
+    return null;
 }
 
 //Функция возвращает хэш

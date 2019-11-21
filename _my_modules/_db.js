@@ -27,10 +27,28 @@ async function getPassword(userName, userPassword) {
 }
 
 async function addFowl(nameFowl) {
+    await add('fowl', {name: nameFowl});
+}
+
+async function add(tableName, addData) {
     var client = new pg.Client(conString);
-    let password = null;
     client.connect();
-    var res = await client.query("INSERT INTO fowl (name) VALUES('" + nameFowl + "');");
+    let strParams = 'INSERT INTO ' + tableName + ' (';
+    let strValues = 'VALUES(';
+    let sizeData = Object.keys(addData).length;
+    for (let key in addData) {
+        strParams += key;
+        strValues += "'" + addData[key] + "'";
+        if (--sizeData) {
+            strParams += ', ';
+            strValues += ', ';
+        }
+        else {
+            strParams += ') ';
+            strValues += ');';
+        }
+    }
+    var res = await client.query(strParams + strValues);
     await client.end();
 }
 

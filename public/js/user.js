@@ -1,6 +1,7 @@
 function getPage(namePage) {
     $('.content').load(namePage, (data)=> {
         $('.formAuth').submit(submitAuthForm);
+        //Для дичи
         $('.btnAddFowl').click(()=> {
             $('body').append(`<div class="modalWindows">
                               <p>Введите название дичи</p>
@@ -21,7 +22,12 @@ function getPage(namePage) {
                 });
             });
         });
+        $('.btnOpenFowl').click(openFowl.bind(this));
     });
+}
+
+function openFowl(nameFowl) {
+    alert(nameFowl.currentTarget.innerText);
 }
 
 function submitAuthForm(event) {

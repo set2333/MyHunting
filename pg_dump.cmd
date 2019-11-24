@@ -1,0 +1,1 @@
+"C:\Program Files\PostgreSQL\11\bin\pg_dump.exe" -U postgres myhunting > dump.sql 
